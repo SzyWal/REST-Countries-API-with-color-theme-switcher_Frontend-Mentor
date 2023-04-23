@@ -19,7 +19,7 @@ body {
     
     font-size: 14px;
 }
-
+.filters,
 main {
     
     max-width: 1200px;
@@ -45,6 +45,19 @@ header button {
     border: none;
     cursor: pointer;
     font-size: 24px;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#query {
+    background-color: var(--color-mode-very-dark-blue);
+    border: none;
+    box-shadow: 2px 3px 18px 5px rgba(66, 68, 90, 1);
+    padding: 15px 30px;
 }
 
 main {

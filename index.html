@@ -17,11 +17,18 @@
             <button>Dark theme</button>
         </div>
     </header>
+    <div class="filters">
+        <input type="text" id="query" placeholder="Search for the country"/>
+        <select name="region" id="region">
+        <option value="">Filter by</option>
+        <option value="Europe">Europe</option>
+        <option value="America">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Africa">Africa</option>
+        <option value="Oceania">Oceania</option>
+        </select>
+    </div>
     <main id="root"></main>
-        <div class="filters">
-            <input type="text" id="query" placeholder="Search for the country"/>
-            se
-        </div>
     <script type="module" src="dom-ul.js"></script>
     <script defer type="module" src="app.js"></script>
 </body>
