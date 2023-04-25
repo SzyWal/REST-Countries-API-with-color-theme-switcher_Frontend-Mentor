@@ -1,8 +1,10 @@
 import {renderCountriesList} from "./dom-ul.js";
 const API_URL_ALL = "https://restcountries.com/v3.1/all";
 
-let countries;
+let countries; //global scope, it's not ideal solution 
 let query = "";
+let region = "";
+
 
     fetch(API_URL_ALL)
         .then((res) => res.json())
@@ -19,19 +21,36 @@ let query = "";
             renderCountriesList(countries);
         });
 
-document.querySelector("#query").addEventListener("input", (e) => {
-
-        const query = e.target.value.toLowerCase().trim();
-        countries = countries.filter((country) => country.name.toLowerCase().includes(query.toLowerCase())
+const filterDataAndRenderCountriesList = () => {
+    const filteredCountries = countries.filter((country) => {
+        return (
+        country.name.toLowerCase().includes(query) && (!git region || country.region === region)
         );
-         console.log(countries);
-         renderCountriesList(countries);
+    });
+};
+
+    renderCountriesList(filterCountries);
+
+document.querySelector("#query").addEventListener("input", (e) => {
+        query = e.target.value.toLowerCase().trim();
+        // const filterCountries = countries.filter((country) => country.name.toLowerCase().includes(query.toLowerCase())
+        // );
+        //  renderCountriesList(filterCountries);
+
+        filterDataAndRenderCountriesList();
 
          //render countries based om query
-
     });
 
-    document.querySelector("#region").addEventListener("change", (e) => {console.log(e.target.value);
+    document.querySelector("#region").addEventListener("change", (e) => {
+        region = e.target.value;
+
+        // const filteredCountries = countries.filter (
+        //     (country) => country.region === region
+        // );
+        // renderCountriesList(filteredCountries);
+
+        filterDataAndRenderCountriesList();
     });
 
 
