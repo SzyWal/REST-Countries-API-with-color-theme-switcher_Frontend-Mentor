@@ -48,7 +48,8 @@ export const renderDashboard = () => {
     
     document.querySelector("#region").addEventListener("change", (e) => {
       region = e.target.value;
-    
+      
+      //Longer func
       // const filteredCountries = countries.filter (
       //     (country) => country.region === region
       // );
