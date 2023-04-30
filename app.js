@@ -4,6 +4,6 @@ import { renderDetail } from "./detail.js";
 if (window.location.search.includes ("?country=")) {
   renderDetail();
 } else {
-  document.querySelector(".filters").classList.add("active ");
+  document.querySelector(".filters").classList.add("active");
   renderDashboard();
  };
