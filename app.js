@@ -1,23 +1,9 @@
-import {renderCountriesList} from "./dom-ul.js";
-const API_URL_ALL = "https://restcountries.com/v3.1/all";
+import { renderDashboard } from "./dashboard.js";
+import { renderDetail } from "./detail.js";
 
-let countries;
-
-fetch(API_URL_ALL)
-    .then((res) => res.json())
-    .then((countriesInfo) => {
-            countries = countriesInfo.map((country) => {
-            return {
-                capital: country.capital && country.capital[0],
-                population: country.population,
-                name: country.name.common,
-                region: country.region,
-                flagUrl: country.flags.png,
-            };
-        });
-        renderCountriesList(countries);
-    });
-
-
-
-
+if (window.location.search.includes ("?country=")) {
+  renderDetail();
+} else {
+  document.querySelector(".filters").classList.add("active");
+  renderDashboard();
+ };
