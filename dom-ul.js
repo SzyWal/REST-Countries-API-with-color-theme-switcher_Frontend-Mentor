@@ -122,7 +122,6 @@ const createDetailElement = (country) => {
 };
 
 const createBorderCountriesContainer = (country) => {
-  
   const createBorderCountriesContainerElement = document.createElement("div");
   const labelElement = document.createElement("strong");
   labelElement.innerHTML = "Border Countries";
@@ -130,9 +129,11 @@ const createBorderCountriesContainer = (country) => {
   borderCountriesContainerElement.appendChild(labelElement);
 
   country.borders.forEach((border) => {
-    borderCountriesContainerElement.appendChild(createDetailButton(border, `/?country=${border}`))
+    borderCountriesContainerElement.appendChild(
+      createDetailButton(border, `/?country=${border}`)
+    );
   });
-  return borderCountriesContainerElement()
+  return borderCountriesContainerElement();
 };
 
 export const renderCountriesList = (countries) => {
@@ -146,7 +147,7 @@ export const renderCountryDetails = (country) => {
   rootElement.innerHTML = "";
   rootElement.appendChild(createBackButtonElement("Go back"));
   rootElement.appendChild(createDetailElement("/"));
-  if(!country.borders && country.borders.length > 0) {
-  rootElement.appendChild(createBorderCountriesContainer(country))
+  if (!country.borders && country.borders.length > 0) {
+    rootElement.appendChild(createBorderCountriesContainer(country));
   }
 };
